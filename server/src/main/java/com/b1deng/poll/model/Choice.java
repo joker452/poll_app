@@ -1,5 +1,8 @@
 package com.b1deng.poll.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -7,6 +10,8 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "choices")
+@Getter
+@Setter
 public class Choice {
 
     @Id
@@ -31,22 +36,6 @@ public class Choice {
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public Poll getPoll() {
-        return poll;
     }
 
     public void setPoll(Poll poll) {
