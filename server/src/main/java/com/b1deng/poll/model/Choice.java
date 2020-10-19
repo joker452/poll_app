@@ -1,6 +1,8 @@
 package com.b1deng.poll.model;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -12,6 +14,8 @@ import java.util.Objects;
 @Table(name = "choices")
 @Getter
 @Setter
+@NoArgsConstructor
+@EqualsAndHashCode
 public class Choice {
 
     @Id
@@ -26,32 +30,8 @@ public class Choice {
     @JoinColumn(name = "poll_id", nullable = false)
     private Poll poll;
 
-    public Choice() {
-
-    }
-
     public Choice(String text) {
         this.text = text;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setPoll(Poll poll) {
-        this.poll = poll;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Choice choice = (Choice) o;
-        return Objects.equals(id, choice.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
 }

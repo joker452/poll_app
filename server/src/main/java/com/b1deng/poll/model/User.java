@@ -7,6 +7,7 @@ import javax.persistence.UniqueConstraint;
 
 import com.b1deng.poll.model.audit.DateAudit;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.NaturalId;
 import javax.persistence.*;
@@ -27,6 +28,7 @@ import java.util.Set;
 })
 @Getter
 @Setter
+@NoArgsConstructor
 public class User extends DateAudit {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -55,10 +57,6 @@ public class User extends DateAudit {
                 joinColumns = @JoinColumn(name = "user_id"),
                 inverseJoinColumns = @JoinColumn(name = "role_id"))
         private Set<Role> roles = new HashSet<>();
-
-        public User() {
-
-        }
 
         public User(String name, String username, String email, String password) {
                 this.name = name;

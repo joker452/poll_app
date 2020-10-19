@@ -2,6 +2,7 @@ package com.b1deng.poll.model;
 
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.NaturalId;
 
@@ -12,6 +13,7 @@ import javax.persistence.*;
 @Table(name = "roles")
 @Getter
 @Setter
+@NoArgsConstructor
 public class Role {
 
     @Id
@@ -22,10 +24,6 @@ public class Role {
     @NaturalId
     @Column(length = 60)
     private RoleName name;
-
-    public Role() {
-
-    }
 
     public Role(RoleName name) {
         this.name = name;

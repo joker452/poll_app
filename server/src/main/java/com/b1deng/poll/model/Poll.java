@@ -41,8 +41,6 @@ public class Poll extends UserDateAudit {
     @NotNull
     private Instant expirationDateTime;
 
-
-
     public Instant getExpirationDateTime() {
         return expirationDateTime;
     }
