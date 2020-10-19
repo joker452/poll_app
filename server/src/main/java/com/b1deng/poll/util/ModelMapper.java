@@ -21,7 +21,7 @@ public class ModelMapper {
         pollResponse.setCreationDateTime(poll.getCreatedAt());
         pollResponse.setExpirationDateTime(poll.getExpirationDateTime());
         Instant now = Instant.now();
-        pollResponse.setExpired(poll.getExpirationDateTime().isBefore(now));
+        pollResponse.setIsExpired(poll.getExpirationDateTime().isBefore(now));
 
         List<ChoiceResponse> choiceResponses = poll.getChoices().stream().map(choice -> {
             ChoiceResponse choiceResponse = new ChoiceResponse();

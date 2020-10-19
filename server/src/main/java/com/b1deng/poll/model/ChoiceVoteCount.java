@@ -1,5 +1,6 @@
 package com.b1deng.poll.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.validation.annotation.Validated;
@@ -11,13 +12,9 @@ import javax.validation.Valid;
 @Setter
 @Valid
 @Validated
+@AllArgsConstructor
 public class ChoiceVoteCount {
     private Long choiceId;
     private Long voteCount;
-
-    public ChoiceVoteCount(Long choiceId, Long voteCount) {
-        this.choiceId = choiceId;
-        this.voteCount = voteCount;
-    }
 
 }

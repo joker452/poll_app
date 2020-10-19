@@ -1,11 +1,17 @@
 package com.b1deng.poll.payload;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.validation.Valid;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
 
+@Getter
+@Setter
 public class PollRequest {
 
     @NotBlank
@@ -21,27 +27,17 @@ public class PollRequest {
     @Valid
     private PollLength pollLength;
 
-    public String getQuestion() {
-        return question;
-    }
+    @Getter
+    @Setter
+    public class PollLength {
 
-    public void setQuestion(String question) {
-        this.question = question;
-    }
+        @NotNull
+        @Max(7)
+        private Integer days;
 
-    public List<ChoiceRequest> getChoices() {
-        return choices;
-    }
+        @NotNull
+        @Max(23)
+        private Integer hours;
 
-    public void setChoices(List<ChoiceRequest> choices) {
-        this.choices = choices;
-    }
-
-    public PollLength getPollLength() {
-        return pollLength;
-    }
-
-    public void setPollLength(PollLength pollLength) {
-        this.pollLength = pollLength;
     }
 }

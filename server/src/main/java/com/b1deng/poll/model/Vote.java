@@ -33,5 +33,4 @@ public class Vote extends DateAudit {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-
 }

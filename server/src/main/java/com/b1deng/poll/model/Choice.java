@@ -15,11 +15,12 @@ import java.util.Objects;
 @Getter
 @Setter
 @NoArgsConstructor
-@EqualsAndHashCode
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Choice {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Long id;
 
     @NotBlank

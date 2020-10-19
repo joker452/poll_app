@@ -1,7 +1,12 @@
 package com.b1deng.poll.payload;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.validation.constraints.NotBlank;
 
+@Getter
+@Setter
 public class LoginRequest {
 
     @NotBlank
@@ -10,19 +15,4 @@ public class LoginRequest {
     @NotBlank
     private String password;
 
-    public String getUsernameOrEmail() {
-        return usernameOrEmail;
-    }
-
-    public void setUsernameOrEmail(String usernameOrEmail) {
-        this.usernameOrEmail = usernameOrEmail;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

@@ -23,7 +23,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 // enable method level security
 @EnableGlobalMethodSecurity(
-        securedEnabled = true,
         jsr250Enabled = true,
         prePostEnabled = true
 )
@@ -59,11 +58,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable()
+        http.cors()
+                .and()
+                .csrf().disable()
                 .exceptionHandling()
                 .authenticationEntryPoint(unauthorizedHandler)
-                .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and().authorizeRequests().antMatchers("/", "/**/*.png", "/**/*.gif", "/**/*.svg",
+                .and()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                .authorizeRequests()
+                .antMatchers("/", "/**/*.png", "/**/*.gif", "/**/*.svg",
                 "/**/*.jpg", "/**/*.html", "/**/*.css", "/**/*.js").permitAll()
                 .antMatchers("/api/auth/**").permitAll()
                 .antMatchers("/api/user/checkUsernameAvailability",
